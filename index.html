@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/navPrincipal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>AngoRotas</title>
+</head>
+<body>
+    <!-- 
+        A primeira página que aparece quando o site é acessado.
+
+        Terá um slider de breve apresentação do sistema, nada de scroll
+        cada slide vai ocupar o tamanho total da tela.
+    -->
+    <main>
+        <section class="sliders">
+            <div class="slide" id="slide-1">
+                <header>
+                    <h1>AngoRotas</h1>
+                </header>
+                <div class="content-slide1">
+                    <h2>Bem-vindo a AngoRotas</h2>
+                    <p class="info">Uma plataforma criada para organizar o transporte público em Luanda.</p>
+                    <p class="mais">Saiba mais <a href="sobre.html#">aqui</a></p>
+                </div>
+            </div>
+            <div class="slide" id="slide-2">
+                <h2>Saiba as rotas dos transportes públicos de Luanda</h2>
+                <p class="info">Descubra facilmente por onde passam os autocarros, quais rotas estão disponíveis e como chegar ao seu destino sem confusão.</p>
+                <p class="mais">Saiba mais <a href="sobre.html#">aqui</a></p>
+            </div>
+            <div class="slide" id="slide-3">
+                <h2>Acompanhe o autocarro mais próximo em tempo real</h2>
+                <p class="info">Veja no mapa a localização dos autocarros em tempo real e saiba exatamente quando eles vão chegar.</p>
+                <p class="mais">Saiba mais <a href="sobre.html#">aqui</a></p>
+            </div>
+        </section>
+        <nav id="slide-nav">
+            <button id="subir">
+                <i class="fa-solid fa-caret-up"></i>
+            </button>
+            <button id="descer">
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+        </nav>
+    </main>
+
+    <nav id="principal">
+        <ul>
+            <li>
+                <a href="index.html" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="rotas.html" class="nav-item">
+                    <i class="fa-solid fa-location-arrow"></i>
+                    <span>Rotas</span>
+                </a>
+            </li>
+            <li>
+                <a href="sobre.html" class="nav-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="nav-item">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Painel</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script src="js/home.js"></script>
+</body>
+</html>

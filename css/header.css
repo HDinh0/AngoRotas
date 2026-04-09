@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+:root {
+    --accent: #2389ff;
+    --active: #0066db;
+    --branco: #fff;
+    --escuro: #111418;
+}
+.cabecalho {
+    position: fixed;
+    width: 100%;
+}
+.cabecalho .cabeca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+    height: 35px;
+    background-color: var(--active);
+}
+.cabecalho .cabeca #hamburguer {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+.cabecalho .cabeca #hamburguer:active {
+    transform: scale(1.2);
+}
+
+/* Navegação da página */
+.cabecalho nav#navPagina {
+    background-color: #111418;
+    position: fixed;
+    height: calc(100dvh - 35px);
+    width: 300px;
+    padding: 1rem;
+    transform: translateX(-300px);
+    transition: 0.35s ease-out;
+}
+.cabecalho nav#navPagina.active {
+    transform: translateX(0);
+}
+.cabecalho nav#navPagina h3 {
+    color: var(--branco);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+.cabecalho nav#navPagina > ul {
+    padding-left: 1rem;
+}
+.cabecalho nav#navPagina > ul li {
+    margin-bottom: 0.5rem;
+}
+.cabecalho nav#navPagina > ul > ul {
+    margin-left: 1rem;
+}
+.cabecalho nav#navPagina li a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: 0.2s;
+}
+.cabecalho nav#navPagina li a:hover {
+    color: rgba(255, 255, 255, 1);
+}
+.cabecalho nav#navPagina li a:active {
+    color: var(--accent);
+}
+.cabecalho nav#navPagina li a i {
+    padding-right: 0.5rem;
+}

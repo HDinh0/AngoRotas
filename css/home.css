@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+:root {
+    --accent: #2389ff;
+    --active: #0066db;
+    --branco: #fff;
+    --escuro: #111418;
+}
+
+main {
+    color: var(--escuro);
+    height: 100dvh;
+}
+.sliders {
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    height: 100%;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+}
+
+#slide-1 .content-slide1,
+#slide-2, #slide-3 {
+    position: relative;
+    padding-inline: 1rem;
+    z-index: 1;
+}
+
+.slide header {
+    background-color: #0066db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide header h1 {
+    font-size: 1.5rem;
+}
+
+.slide h2 {
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+}
+.slide p.info {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide p.mais a {
+    color: var(--accent);
+}
+
+#slide-1, #slide-2, #slide-3 {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: calc(100% - 70px);
+}
+
+/* Estilos da navegação do slide */
+#slide-nav {
+    display: flex;
+    flex-direction: column;
+    width: 42px;
+    position: fixed;
+    z-index: 10;
+    bottom: 5.5rem;
+    right: 20px;
+    border-radius: 50px;
+    overflow: hidden;
+    gap: 1px;
+    background-color: #aaa;
+}
+#slide-nav button {
+    background-color: #ccc;
+    height: 50px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#slide-nav button:active {
+    background-color: #bbb;
+}
+#slide-nav button i {
+    color: #222;
+    font-size: 1.5rem;
+}
+#slide-nav button:active i {
+    color: #000;
+}

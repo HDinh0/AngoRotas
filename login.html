@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navPrincipal.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>AngoRotas</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h2>AngoRotas</h2>
+        </header>
+        <div class="toggle">
+            <button class="botoes active" id="entrar">Entrar</button>
+            <button class="botoes" id="criar">Criar conta</button>
+        </div>
+        <div class="conteiner">
+            <section class="formConteiner active" id="conteinerEntrar">
+                <form action="" method="post">
+                    <div class="box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="numero1" placeholder="Número de telefone" name="" id="">
+                    </div>
+                    <div class="box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="senha1" placeholder="Palavra-passe" name="" id="">
+                        <button type="button" id="verSenha1">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <button class="btn" type="submit">Entrar <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                    <a class="esqueceu" href="">Esqueceu a palavra-passe?</a>
+                </form>
+            </section>
+            <section class="formConteiner" id="conteinerCriar" >
+                <form action="" method="post">
+                    <label for="nome">Nome completo</label>
+                    <div class="box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="nome" placeholder="Primeiro e Último" name="" id="">
+                    </div>
+                    <label for="numero">Número de telefone</label>
+                    <div class="box">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="text" id="numero" placeholder="900 000 000" name="" id="">
+                    </div>
+                    <label for="senha2">Crie uma senha</label>
+                    <div class="box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="senha2" name="" id="">
+                        <button type="button" id="verSenha2">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <label for="senha3">Repita sua senha</label>
+                    <div class="box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="senha3" name="" id="">
+                        <button type="button" id="verSenha3">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <button class="btn" type="submit">Criar conta <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                </form>
+            </section>
+        </div>
+        
+    </main>
+    <nav id="principal">
+        <ul>
+            <li>
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="rotas.html" class="nav-item">
+                    <i class="fa-solid fa-location-arrow"></i>
+                    <span>Rotas</span>
+                </a>
+            </li>
+            <li>
+                <a href="sobre.html" class="nav-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="nav-item active">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Painel</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script src="js/login.js"></script>
+</body>
+</html>

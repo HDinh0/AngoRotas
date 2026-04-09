@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+:root {
+    --accent: #2389ff;
+    --active: #0066db;
+    --branco: #fff;
+    --escuro: #111418;
+}
+
+nav#principal {
+    width: 95%;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin-bottom: 1rem;
+    background-color: var(--accent);
+    border-radius: 50px;
+}
+nav#principal ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+nav#principal ul li a {
+    color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+nav#principal ul li a i {
+    font-size: 1.2rem;
+}
+nav#principal ul li a:active i {
+    transform: scale(1.2);
+}
+nav#principal ul li a span {
+    position: relative;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    padding-inline: 0.5rem;
+}
+
+nav#principal ul li a.active span {
+    background-color: var(--active);
+}
+
+/* A ser usado em telas maiores para criar animação */
+
+/* nav#principal ul li a span::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    background-color: var(--active);
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+nav#principal ul li a:hover span::before {
+    width: 100%;
+}
+
+nav#principal ul li a.active span::before {
+    width: 100%;
+} */

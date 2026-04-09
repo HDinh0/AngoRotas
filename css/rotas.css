@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+:root {
+    --accent: #2389ff;
+    --active: #0066db;
+    --branco: #fff;
+    --escuro: #111418;
+}
+
+main {
+    padding: 1rem;
+    padding-top: calc(35px + 1rem);
+    color: var(--escuro);
+}

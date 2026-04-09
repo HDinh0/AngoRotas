@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+:root {
+    --accent: #2389ff;
+    --active: #0066db;
+    --branco: #fff;
+    --escuro: #111418;
+}
+
+main {
+    color: var(--escuro);
+}

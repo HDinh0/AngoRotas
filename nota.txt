@@ -1,0 +1,11 @@
+Slide 1
+<h2>Bem vindo a AngoRotas</h2>
+<p class="info">A AngoRotas é uma plataforma criada para organizar e modernizar o transporte público em Luanda, oferecendo informações claras sobre rotas, horários e localização dos autocarros, tudo em um só lugar.</p>
+
+Slide 2
+<h2>Saiba as rotas dos transportes públicos de Luanda</h2>
+<p class="info">Descubra facilmente por onde passam os autocarros, quais rotas estão disponíveis e como chegar ao seu destino sem confusão, reduzindo o tempo perdido à procura de transporte.</p>
+
+Slide 3
+<h2>Acompanhe o autocarro mais próximo em tempo real</h2>
+<p class="info">Veja a localização dos autocarros em tempo real e saiba exatamente quando eles vão chegar, evitando longas esperas e trazendo mais previsibilidade para o seu dia.</p>
