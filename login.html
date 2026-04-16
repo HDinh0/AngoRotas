@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/navPrincipal.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>AngoRotas</title>
+    <title>AngoRotas - Login</title>
 </head>
 <body>
     <main>
@@ -25,7 +25,7 @@
                         <i class="fa-solid fa-user"></i>
                         <input type="text" id="numero1" placeholder="Número de telefone" name="" id="">
                     </div>
-                    <div class="box">
+                    <div class="box senha">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" id="senha1" placeholder="Palavra-passe" name="" id="">
                         <button type="button" id="verSenha1">
@@ -49,7 +49,7 @@
                         <input type="text" id="numero" placeholder="900 000 000" name="" id="">
                     </div>
                     <label for="senha2">Crie uma senha</label>
-                    <div class="box">
+                    <div class="box senha">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" id="senha2" name="" id="">
                         <button type="button" id="verSenha2">
@@ -57,7 +57,7 @@
                         </button>
                     </div>
                     <label for="senha3">Repita sua senha</label>
-                    <div class="box">
+                    <div class="box senha">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" id="senha3" name="" id="">
                         <button type="button" id="verSenha3">
@@ -99,5 +99,21 @@
         </ul>
     </nav>
     <script src="js/login.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            var botoes = document.querySelectorAll("form > button")
+    
+            botoes.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault()
+
+                    let link = "./painel/"
+                    e.preventDefault()
+
+                    window.location.href = link;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

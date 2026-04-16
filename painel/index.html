@@ -3,12 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/navPrincipal.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>AngoRotas</title>
 </head>
 <body>
     <!-- 
-        Esta será a página de login
-        
+        Painel inicial do painel
     -->
+    <header class="cabecalho">
+        <section class="cabeca">
+            <h2>AngoRotas</h2>
+            <button id="hamburguer">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </section>
+        <nav id="navPagina">
+            <h3>Navegue pela página</h3>
+            <ul>
+                <li><a href="#"><i class="fa-regular fa-circle"></i>Rotas de Luanda</a></li>
+                <hr>
+                <ul class="linkGroup">
+                    <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada de Catete</a></li>
+                    <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada de Cacuaco</a></li>
+                    <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada do Celemba 2</a></li>
+                </ul>
+                <hr>
+                <li><a href="#"><i class="fa-regular fa-circle"></i>Acompanhar no mapa</a></li>
+                <hr>
+                <li><a href="#"><i class="fa-regular fa-circle"></i>Direitos autorais</a></li>
+                <hr>
+                <li><a href="#" class="terminar"><i class="fa-solid fa-arrow-right-from-bracket"></i>Terminar Secção</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="primeira">
+            <h2>Rotas dos autocarros de Luanda</h2>
+            <p class="info"><i></i>Clique em um rota para visualizar mais informações.</p>
+            <section class="rotas">
+                <div class="rota" id="rota-1">
+                    <p>101</p>
+                    <span><i class="fa-solid fa-location-dot"></i>KM 30 -- <i class="fa-solid fa-location-dot"></i>1º de Maio</span>
+                </div>
+                <div class="rota" id="rota-2">
+                    <p>119</p>
+                    <span><i class="fa-solid fa-location-dot"></i>Viana/vila -- Vila de Cacuaco<i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div class="rota" id="rota-3">
+                    <p>102</p>
+                    <span><i class="fa-solid fa-location-dot"></i>Vila de Cacuaco -- <i class="fa-solid fa-location-dot"></i>Marginal de Luanda</span>
+                </div>
+                <div class="rota" id="rota-3">
+                    <p>155</p>
+                    <span><i class="fa-solid fa-location-dot"></i>Marginal de Luanda -- <i class="fa-solid fa-location-dot"></i>Benfica</span>
+                </div>
+                <div class="info" id="infoRota-1" style="display: none;"></div>
+                <div class="info" id="infoRota-2" style="display: none;"></div>
+                <div class="info" id="infoRota-3" style="display: none;"></div>
+            </section>
+        </section>
+        <section id="segunda">
+            <section class="inicial" style="display: none;">
+                <p><i class="fa-solid fa-circle-info"></i>Informe a via que deseja monitorar ou habilite a sua localização para visualizar os autocarros mais próximos de si.</p>
+                <div class="conteinerBotoes">
+                    <button class="botao" id="informar">Informar via</button>
+                    <button class="botao" id="activeLocalizacao">Abilitar minha localização</button>
+                </div>
+                <section>
+                    <form action="" style="display: none;">
+                        <select name="" id="">
+                            <option value="">(Selecione a via)</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">(Selecione o sentido)</option>
+                        </select>
+                    </form>
+                </section>
+            </section>
+            <section class="conteinerMapa">
+                <div class="info">
+                    <p>Via: <span></span></p>
+                    <p>Sentido: <span></span></p>
+                </div>
+                <canvas id="mapa"></canvas>
+            </section>
+        </section>
+    </main>
+    <nav id="principal">
+        <ul>
+            <li>
+                <a href="../index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="../rotas.html" class="nav-item">
+                    <i class="fa-solid fa-location-arrow"></i>
+                    <span>Rotas</span>
+                </a>
+            </li>
+            <li>
+                <a href="../sobre.html" class="nav-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html" class="nav-item active">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Painel</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script src="../js/header.js"></script>
 </body>
 </html>

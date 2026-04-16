@@ -1,9 +1,12 @@
 @charset "utf-8";
 
 :root {
+    --accent-max: #87bfff;
     --accent: #2389ff;
     --active: #0066db;
+    --active-min: #0055b6;
     --branco: #fff;
+    --escuro-max: #303944;
     --escuro: #111418;
 }
 
@@ -11,4 +14,109 @@ main {
     padding: 1rem;
     padding-top: calc(35px + 1rem);
     color: var(--escuro);
+}
+
+main i {
+    padding-right: 0.2rem;
+}
+
+main h1 {
+    /* color: #fffffff8;
+    padding-left: 1rem;
+    background-color: var(--active);
+    border-radius: 50px; */
+    color: var(--active-min);
+    margin-bottom: 2rem;
+}
+
+main h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* PRIMEIRA SECÇÃO */
+section#primeira, 
+section#segunda {
+    margin-bottom: 3rem;
+}
+
+section#primeira .slider {
+    display: flex;
+    gap: 0.5rem;
+}
+
+section#primeira .slider .slide {
+    flex: 1;
+    height: 100px;
+    overflow: hidden;
+    border: 1px solid #0066db40;
+    background-size: cover;
+}
+section#primeira .slider #slide-1 {
+    background-image: url(../img/slide-1.png);
+}
+section#primeira .slider #slide-2 {
+    background-image: url(../img/slide-2.jpg);
+}
+section#primeira .slider #slide-3 {
+    background-image: url(../img/slide-3.jpg);
+}
+
+/* SEGUNDA SECÇÃO */
+section#segunda p.info {
+    color: var(--escuro-max);
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+section#segunda section.rotas {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+section#segunda section.rotas .rota {
+    color: var(--branco);
+    padding: 1rem;
+    background-color: var(--active-min);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+section#segunda section.rotas .rota:active {
+    transform: scale(1.02);
+}
+section#segunda section.rotas .rota p {
+    padding: 0rem 0.4rem;
+    background-color: var(--accent);
+    border-radius: 0.2rem;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+}
+
+/* TERCEIRA SECÇÃO */
+section#terceira {
+    margin-bottom: calc(1rem + 61px + 1rem);
+}
+section#terceira section.inicial {
+    padding: 1rem;
+    background-color: #2389ff40;
+}
+section#terceira section.inicial div.conteinerBotoes {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+section#terceira .inicial .conteinerBotoes .botao {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    background-color: var(--accent-max);
+}
+section#terceira .inicial .conteinerBotoes .botao:active {
+    transform: scale(1.05);
 }

@@ -46,6 +46,7 @@ nav#principal ul li a span {
 
 nav#principal ul li a.active span {
     background-color: var(--active);
+    /* box-shadow: 0px 0px 50px white; */
 }
 
 /* A ser usado em telas maiores para criar animação */
