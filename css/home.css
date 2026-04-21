@@ -20,12 +20,12 @@ main {
 }
 
 /* Cores do SLIDES */
-.slide#slide-1,
+/* .slide#slide-1,
 .slide#slide-2,
 .slide#slide-3 {
-    /* background: linear-gradient(180deg, #fff 0%, #f0f6ff 50%, #e3edff 100%); */
+    background: linear-gradient(180deg, #fff 0%, #f0f6ff 50%, #e3edff 100%);
     background: linear-gradient(180deg, #fff 0%, #e9f2ff 50%, #bcd2ff 100%);
-}
+} */
 
 html::-webkit-scrollbar {
     width: 0;
@@ -49,6 +49,7 @@ html::-webkit-scrollbar {
 }
 
 .slide h2 {
+    color: #002e69;
     padding-top: 1rem;
     font-size: 2.5rem;
     line-height: 2.5rem;
@@ -61,6 +62,70 @@ html::-webkit-scrollbar {
 
 .slide p.mais a {
     color: var(--accent);
+}
+
+.slide .imageBox {
+    position: relative;
+    width: 100%;
+    height: calc(100dvh - 260px);
+    padding-bottom: calc(80px + 20px);
+    padding-left: 1rem;
+    padding-right: 65px;
+}
+
+/* BRILHO DE FUNDO */
+/* .slide .imageBox::before {
+    position: absolute;
+    content: '';
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    z-index: 0;
+} */
+
+.slide .imageBox .img {
+    width: auto;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide .imageBox#i1 {
+    background: radial-gradient( #238aff4b 10%, #fff, #fff);
+    padding-bottom: calc(80px + 20px + 20px);
+}
+.slide .imageBox#i1 .img {
+    position: relative;
+    z-index: 3;
+    width: auto;
+    height: 100%;
+    background: url(../img/slide-1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide .imageBox#i2 {
+    padding-bottom: calc(80px + 20px + 10px);
+    /* background: radial-gradient( #175ba82f 40%, #fff, #fff); */
+}
+.slide .imageBox#i2 .img {
+    width: auto;
+    height: 100%;
+    background: url(../img/slide-2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide .imageBox#i3 {
+    padding-bottom: calc(80px + 20px + 40px);
+}
+.slide .imageBox#i3 .img {
+    width: auto;
+    height: 100%;
+    background: url(../img/slide-3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #slide-1, #slide-2, #slide-3 {

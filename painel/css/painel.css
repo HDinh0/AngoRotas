@@ -56,12 +56,92 @@ section#primeira section.rotas .rota p {
     margin-bottom: 0.5rem;
 }
 
+/* Modal de info das rotas */
+section#primeira section.rotas .info {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+section#primeira section.rotas .info.active {
+    display: flex;
+}
+
+section#primeira section.rotas .info .content {
+    width: 300px;
+    border-radius: 1rem;
+    background-color: var(--accent-max);
+    padding: 1rem;
+}
+
+section#primeira section.rotas .info .content h3 {
+    font-size: 1rem;
+    width: 100%;
+}
+section#primeira section.rotas .info .content hr {
+    border: none;
+    border-bottom: 1px solid var(--escuro-max);
+    margin-block: 0.5rem;
+}
+section#primeira section.rotas .info .content .selectBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section#primeira section.rotas .info .content .selectBox select {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    border: 1px solid var(--escuro);
+}
+section#primeira section.rotas .info .content .formConteiner form {
+    display: flex;
+    flex-direction: column;
+}
+
+section#primeira section.rotas .info .content .formConteiner form .inputBox {
+    margin-left: 1rem;
+}
+
+section#primeira section.rotas .info .content .formConteiner form > p {
+    padding-left: 1rem;
+    margin-block: 1rem;
+    color: var(--escuro-max);
+    font-size: 0.8rem;
+}
+
+section#primeira section.rotas .info .content .formConteiner form button {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: var(--escuro);
+    color: var(--branco);
+    width: 100%;
+    padding-block: 1rem;
+    cursor: pointer;
+}
+section#primeira section.rotas .info .content .formConteiner form button:active {
+    background-color: var(--escuro-max);
+}
+
 /* SEGUNDA SECÇÃO */
 section#segunda section.inicial {
     padding: 1rem;
     /* background-color: #2389ff40; */
     background-color: #ffffff10;
     color: var(--branco);
+}
+section#segunda section.inicial.desactive {
+    display: none;
 }
 section#segunda section.inicial div.conteinerBotoes {
     margin-top: 1rem;
@@ -83,10 +163,21 @@ section#segunda .inicial .conteinerBotoes .botao:active {
     transform: scale(1.05);
 }
 
+section#segunda section.inicial .selecionar {
+    display: none;
+}
+section#segunda section.inicial .selecionar.active {
+    display: flex;
+}
+
 /* secção mapa */
 section#segunda .conteinerMapa {
+    display: none;
     border-radius: 0.5rem;
     overflow: hidden;
+}
+section#segunda .conteinerMapa.active {
+    display: block;
 }
 section#segunda .conteinerMapa .info {
     background-color: #ffffff20;

@@ -12,22 +12,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Atualiza posição do slider
     function updateSlide() {
-        sliders.style.transform = `translateY(-${index * 100}dvh)`;
+        sliders.style.transform = `translateY(-${index * 100}vh)`;
 
         isAnimating = true;
         setTimeout(() => {
             isAnimating = false;
-        }, 500); // tempo igual ao CSS
+        }, 500);
     }
 
-    // Subir
     function slideUp() {
         if (index <= 0 || isAnimating) return;
         index--;
         updateSlide();
     }
 
-    // Descer
     function slideDown() {
         if (index >= totalSlides - 1 || isAnimating) return;
         index++;
@@ -38,42 +36,21 @@ window.addEventListener("DOMContentLoaded", () => {
     btnUp.addEventListener("click", slideUp);
     btnDown.addEventListener("click", slideDown);
 
-    // SCROLL DO MOUSE
+    // BLOQUEAR SCROLL DO MOUSE
     window.addEventListener("wheel", (e) => {
-        if (isAnimating) return;
+        e.preventDefault();
+    }, { passive: false });
 
-        if (e.deltaY > 0) {
-            slideDown();
-        } else {
-            slideUp();
+    // BLOQUEAR TOUCH (MOBILE)
+    window.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+    }, { passive: false });
+
+    // BLOQUEAR TECLAS (setas e espaço)
+    window.addEventListener("keydown", (e) => {
+        const keys = ["ArrowUp", "ArrowDown", "Space"];
+        if (keys.includes(e.code)) {
+            e.preventDefault();
         }
     });
-
-    // TOUCH (SWIPE)
-    let startY = 0;
-    let endY = 0;
-
-    window.addEventListener("touchstart", (e) => {
-        startY = e.touches[0].clientY;
-    });
-
-    window.addEventListener("touchend", (e) => {
-        endY = e.changedTouches[0].clientY;
-
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        let diff = startY - endY;
-
-        if (Math.abs(diff) < 50) return; // evita micro movimentos
-
-        if (diff > 0) {
-            // dedo subiu → vai para baixo (próximo slide)
-            slideDown();
-        } else {
-            // dedo desceu → vai para cima (slide anterior)
-            slideUp();
-        }
-    }
 });

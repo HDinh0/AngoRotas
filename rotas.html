@@ -59,31 +59,28 @@
                     O mapa deve informar que via(rota) está sendo monitorada e em
                      qual dos sentidos, para vias que têm dois sentidos.
                 -->
-                <li><a href="#"><i class="fa-regular fa-circle"></i>Topo da página</a></li>
-                <li><a href="#"><i class="fa-regular fa-circle"></i>Rotas de Luanda</a></li>
-                <hr>
+                <li><a href="#primeira"><i class="fa-regular fa-circle"></i>Topo da página</a></li>
+                <li><a href="#segunda"><i class="fa-regular fa-circle"></i>Rotas de Luanda</a></li>
+                <!-- <hr>
                 <ul class="linkGroup">
                     <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada de Catete</a></li>
                     <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada de Cacuaco</a></li>
                     <li><a href="#"><i class="fa-regular fa-circle"></i>Estrada do Celemba 2</a></li>
                 </ul>
-                <hr>
-                <li><a href="#"><i class="fa-regular fa-circle"></i>Acompanhar no mapa</a></li>
+                <hr> -->
+                <li><a href="#terceira"><i class="fa-regular fa-circle"></i>Acompanhar no mapa</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Informações e Rotas</h1>
+        <!-- <h1>Rotas</h1> -->
         <section id="primeira">
             <h2>Rastreamos os autocarros</h2>
-            <section class="slider" id="slide-1">
-                <div class="slide">
+            <section class="slider">
+                <div class="slide" id="slide-1">
                     <!-- Conteudo preenchido pelo css -->
                 </div>
                 <div class="slide" id="slide-2">
-                    <!-- Conteudo preenchido pelo css -->
-                </div>
-                <div class="slide" id="slide-3">
                     <!-- Conteudo preenchido pelo css -->
                 </div>
             </section>
@@ -92,51 +89,209 @@
             <h2>Rotas dos autocarros de Luanda</h2>
             <p class="info"><i class="fa-solid fa-circle-info"></i>Clique em um rota para visualizar mais informações.</p>
             <section class="rotas">
-                <div class="rota" id="rota-1">
+                <div class="rota" id="Rota-1">
                     <p>101</p>
                     <span><i class="fa-solid fa-location-dot"></i>KM 30 -- <br><i class="fa-solid fa-location-dot"></i>1º de Maio</span>
                 </div>
-                <div class="rota" id="rota-2">
+                <div class="rota" id="Rota-2">
                     <p>119</p>
                     <span><i class="fa-solid fa-location-dot"></i>Viana/vila -- <br><i class="fa-solid fa-location-dot"></i>Vila de Cacuaco</span>
                 </div>
-                <div class="rota" id="rota-3">
+                <div class="rota" id="Rota-3">
                     <p>102</p>
-                    <span><i class="fa-solid fa-location-dot"></i>Vila de Cacuaco -- <br><i class="fa-solid fa-location-dot"></i>Marginal de Luanda</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Desvio do Zango -- <br><i class="fa-solid fa-location-dot"></i>Zango 8000</span>
                 </div>
-                <div class="rota" id="rota-3">
+                <div class="rota" id="Rota-4">
                     <p>155</p>
-                    <span><i class="fa-solid fa-location-dot"></i>Marginal de Luanda -- <br><i class="fa-solid fa-location-dot"></i>Benfica</span>
+                    <span><i class="fa-solid fa-location-dot"></i>1º de Maio -- <br><i class="fa-solid fa-location-dot"></i>Benfica</span>
                 </div>
-                <div class="info" id="infoRota-1" style="display: none;"></div>
-                <div class="info" id="infoRota-2" style="display: none;"></div>
-                <div class="info" id="infoRota-3" style="display: none;"></div>
+                <div class="info" id="infoRota-1">
+                    <div class="content">
+                        <h3><i class="fa-solid fa-location-dot"></i>KM 30 -- <i class="fa-solid fa-location-dot"></i>1º de Maio</h3>
+                        <hr>
+                        <div class="selectBox">
+                            <select name="" id="">
+                                <option value="">Seleciona o sentido</option>
+                                <option value="">Sentido 1º de Maio</option>
+                                <option value="">Sentido KM 30</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="formConteiner">
+                            <form action="">
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Esquadra</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Sei lá</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
+                                <div class="formBotao">
+                                    <button type="button">Monitorar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="info" id="infoRota-2">
+                    <div class="content">
+                        <h3><i class="fa-solid fa-location-dot"></i>Viana/vila -- <i class="fa-solid fa-location-dot"></i>Vila de Cacuaco</h3>
+                        <hr>
+                        <div class="selectBox">
+                            <select name="" id="">
+                                <option value="">Seleciona o sentido</option>
+                                <option value="">Sentido 1º de Maio</option>
+                                <option value="">Sentido KM 30</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="formConteiner">
+                            <form action="">
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Esquadra</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Sei lá</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
+                                <div class="formBotao">
+                                    <button type="button">Monitorar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="info" id="infoRota-3">
+                    <div class="content">
+                        <h3><i class="fa-solid fa-location-dot"></i>Desvio do Zango -- <i class="fa-solid fa-location-dot"></i>Zango 8000</h3>
+                        <hr>
+                        <div class="selectBox">
+                            <select name="" id="">
+                                <option value="">Seleciona o sentido</option>
+                                <option value="">Sentido 1º de Maio</option>
+                                <option value="">Sentido KM 30</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="formConteiner">
+                            <form action="">
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Esquadra</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Sei lá</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
+                                <div class="formBotao">
+                                    <button type="button">Monitorar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="info" id="infoRota-4">
+                    <div class="content">
+                        <h3><i class="fa-solid fa-location-dot"></i>1º de Maio -- <i class="fa-solid fa-location-dot"></i>Benfica</h3>
+                        <hr>
+                        <div class="selectBox">
+                            <select name="" id="">
+                                <option value="">Seleciona o sentido</option>
+                                <option value="">Sentido 1º de Maio</option>
+                                <option value="">Sentido KM 30</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="formConteiner">
+                            <form action="">
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Esquadra</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Sei lá</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Esquadra</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Policia</label>
+                                </div>
+                                <div class="inputBox">
+                                    <input type="radio" name="paragem" id="">
+                                    <label for="">Só testando</label>
+                                </div>
+                                <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
+                                <div class="formBotao">
+                                    <button type="button">Monitorar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </section>
         </section>
         <section id="terceira">
-            <section class="inicial">
-                <p><i class="fa-solid fa-circle-info"></i>Informe a via que deseja monitorar ou habilite a sua localização para visualizar os autocarros mais próximos de si.</p>
+            <section class="inicial desactive">
+                <p><i class="fa-solid fa-circle-info"></i>Na secção à cima, clique na via que deseja monitorar ou habilite a sua localização para visualizar os autocarros mais próximos de si.</p>
                 <div class="conteinerBotoes">
-                    <button class="botao" id="informar">Informar via</button>
                     <button class="botao" id="activeLocalizacao">Abilitar minha localização</button>
                 </div>
-                <section>
-                    <form action="" style="display: none;">
-                        <select name="" id="">
-                            <option value="">(Selecione a via)</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">(Selecione o sentido)</option>
-                        </select>
-                    </form>
-                </section>
             </section>
-            <section class="conteinerMapa" style="display: none;">
+            <section class="conteinerMapa active">
                 <div class="info">
                     <p>Via: <span></span></p>
                     <p>Sentido: <span></span></p>
                 </div>
-                <canvas id="mapa"></canvas>
+                <div id="mapa"></div>
             </section>
         </section>
     </main>
@@ -169,5 +324,8 @@
         </ul>
     </nav>
     <script src="js/header.js"></script>
+    <script src="js/rotas.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/mapa.js"></script>
 </body>
 </html>
