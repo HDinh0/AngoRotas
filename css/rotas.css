@@ -49,13 +49,12 @@ section#primeira .slider .slide {
     height: 100px;
     overflow: hidden;
     border: 1px solid #0066db40;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 section#primeira .slider #slide-1 {
-    background-image: url(../img/slide3.jpg);
-}
-section#primeira .slider #slide-2 {
-    background-image: url(../img/slide3.jpg);
+    background-image: url(../img/tecul.jpg);
 }
 
 /* SEGUNDA SECÇÃO */
@@ -94,6 +93,7 @@ section#segunda section.rotas .rota p {
 section#segunda section.rotas .info {
     display: none;
     position: fixed;
+    z-index: 2000;
     top: 0;
     right: 0;
     bottom: 0;
@@ -210,8 +210,9 @@ section#terceira .conteinerMapa .info {
     padding-left: 1rem;
 }
 
-section#terceira .conteinerMapa #mapa {
+section#terceira  #mapa {
     /* background-color: var(--escuro-max); */
     width: 100%;
     height: 350px;
+    overflow: hidden
 }

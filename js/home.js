@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Atualiza posição do slider
     function updateSlide() {
-        sliders.style.transform = `translateY(-${index * 100}vh)`;
+        sliders.style.transform = `translateY(-${index * 100}dvh)`;
 
         isAnimating = true;
         setTimeout(() => {

@@ -10,7 +10,7 @@
 nav#principal {
     width: 95%;
     position: fixed;
-    z-index: 999;
+    z-index: 2500;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;

@@ -8,6 +8,7 @@
 }
 .cabecalho {
     position: fixed;
+    z-index: 2000;
     width: 100%;
 }
 .cabecalho .cabeca {

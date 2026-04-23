@@ -33,7 +33,7 @@ main .conteiner .box:nth-child(1) {
     background-color: #2389ff40;
     border-radius: 0.5rem;
 }
-main .conteiner .box:nth-child(1) h1+p {
+main .conteiner .box:nth-child(1) p {
     margin-bottom: 0.5rem;
 }
 
@@ -72,6 +72,10 @@ main .conteiner:nth-child(2) .box h3 {
 }
 main .conteiner:nth-child(2) .box h3 i {
     transition: 0.3;
+}
+
+main .conteiner:nth-child(2) .box p i {
+    padding-right: 0.2rem;
 }
 
 main .conteiner:nth-child(2) .box p {

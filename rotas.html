@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="css/navPrincipal.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/rotas.css">
+    <link rel="shortcut icon" href="img/fav.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <title>AngoRotas - Rotas</title>
 </head>
 <body>
@@ -80,9 +82,6 @@
                 <div class="slide" id="slide-1">
                     <!-- Conteudo preenchido pelo css -->
                 </div>
-                <div class="slide" id="slide-2">
-                    <!-- Conteudo preenchido pelo css -->
-                </div>
             </section>
         </section>
         <section id="segunda">
@@ -137,7 +136,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar1">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -175,7 +174,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar2">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -213,7 +212,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar3">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -271,7 +270,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar4">Monitorar</button>
                                 </div>
                             </form>
                         </div>

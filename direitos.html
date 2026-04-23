@@ -3,16 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/direitos.css">
+    <link rel="shortcut icon" href="img/fav.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>AngoRotas - Direitos Autorais</title>
 </head>
 <body>
-    <!-- 
-        Aqui eu escrevo quem criou esse app.
-        Deixo uma foto, quem sou e os meus contactos.
-
-        Deixo claro os direitos autorais.
-
-        Termos de uso e políticas de privacidade.
-    -->
+    <header class="cabecalho">
+        <section class="cabeca">
+            <a href="#" id="voltar">
+                <i class="fa-solid fa-caret-left"></i>
+                <span>Página anterior</span>
+            </a>
+            <h2>AngoRotas</h2>
+        </section>
+    </header>
+    <main>
+        <section class="titular">
+            <h1>Notas de Direitos Autorais</h1>
+        </section>
+        <section class="direitos">
+            <p>
+                © 2026 AngoRotas — Desenvolvido por Bernardino Barroso, Angola.
+            </p>
+            <p>
+                A AngoRotas é uma plataforma digital desenvolvida com o objetivo de melhorar a 
+                experiência no uso de transportes públicos em Luanda, oferecendo informações 
+                sobre rotas, paragens e acompanhamento básico de autocarros.
+            </p>
+            <p>
+                Todo o conteúdo presente nesta plataforma, incluindo o código-fonte, design 
+                (UI/UX) e estrutura do sistema, está protegido. A utilização da plataforma é livre 
+                para fins de navegação e consulta, sendo também permitido o uso para fins 
+                educativos. No entanto, não é permitido copiar, reproduzir, modificar, reutilizar 
+                ou distribuir o código, o design ou qualquer parte funcional do sistema, mesmo que 
+                parcialmente.
+            </p>
+            <p>
+                A ideia central do projeto AngoRotas é considerada propriedade intelectual do 
+                desenvolvedor, não sendo permitida a sua reprodução, adaptação ou utilização para 
+                criação de sistemas semelhantes sem autorização.
+            </p>
+            <p>
+                Também é proibido clonar o sistema, replicar a interface, utilizar o nome “AngoRotas” 
+                ou revender qualquer parte da solução.
+            </p>
+            <p>
+                A plataforma utiliza serviços e recursos de terceiros, incluindo mapas e rotas baseados 
+                em OpenStreetMap e OSRM, ícones da biblioteca Font Awesome e a fonte Poppins do Google 
+                Fonts. Esses recursos pertencem aos seus respectivos proprietários.
+            </p>
+            <p>
+                As informações apresentadas na plataforma têm carácter informativo e podem não refletir 
+                dados em tempo real com total precisão. A AngoRotas não se responsabiliza por eventuais 
+                atrasos ou alterações de rotas.
+            </p>
+        </section>
+        <section class="devInfo">
+            <div>
+                <img src="img/foto.png" alt="">
+            </div>
+            <div>
+                <h3>Bernardino Barroso</h3>
+                <p>Email: <a href="mailto:barrosob2022@gmail.com">barrosob2022@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+    <script>
+        console.log(document.getElementById("voltar"))
+        document.getElementById("voltar").addEventListener("click", (e)=>{
+            e.preventDefault()
+            if (history.length > 1) {
+                history.back();
+            } else {
+                window.location.href = "sobre.html";
+            }
+        });
+    </script>
 </body>
 </html>

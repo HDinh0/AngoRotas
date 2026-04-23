@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../css/navPrincipal.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/painel.css">
+    <link rel="shortcut icon" href="../img/fav.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <title>AngoRotas</title>
 </head>
 <body>
@@ -36,7 +38,7 @@
                 <hr>
                 <li><a href="../direitos.html"><i class="fa-regular fa-circle"></i>Direitos autorais</a></li>
                 <hr>
-                <li><a href="#" class="terminar"><i class="fa-solid fa-arrow-right-from-bracket"></i>Terminar Secção</a></li>
+                <li><a href="../rotas.html" class="terminar"><i class="fa-solid fa-arrow-right-from-bracket"></i>Terminar Secção</a></li>
             </ul>
         </nav>
     </header>
@@ -93,7 +95,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar1">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -131,7 +133,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar2">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -169,7 +171,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar3">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -207,7 +209,7 @@
                                 </div>
                                 <p><i class="fa-solid fa-circle-info"></i>Clique em uma paragem para monitorá-la no mapa.</p>
                                 <div class="formBotao">
-                                    <button type="button">Monitorar</button>
+                                    <button type="button" id="monitorar4">Monitorar</button>
                                 </div>
                             </form>
                         </div>
@@ -216,29 +218,18 @@
             </section>
         </section>
         <section id="segunda">
-            <section class="inicial">
-                <p><i class="fa-solid fa-circle-info"></i>Informe a via que deseja monitorar ou habilite a sua localização para visualizar os autocarros mais próximos de si.</p>
+            <section class="inicial desactive">
+                <p><i class="fa-solid fa-circle-info"></i>Na secção à cima, clique na via que deseja monitorar ou habilite a sua localização para visualizar os autocarros mais próximos de si.</p>
                 <div class="conteinerBotoes">
-                    <button class="botao" id="informar">Informar via</button>
                     <button class="botao" id="activeLocalizacao">Abilitar minha localização</button>
                 </div>
-                <section class="selecionar">
-                    <form action="">
-                        <select name="" id="">
-                            <option value="">(Selecione a via)</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">(Selecione o sentido)</option>
-                        </select>
-                    </form>
-                </section>
             </section>
-            <section class="conteinerMapa">
+            <section class="conteinerMapa active">
                 <div class="info">
                     <p>Via: <span></span></p>
                     <p>Sentido: <span></span></p>
                 </div>
-                <canvas id="mapa"></canvas>
+                <div id="mapa"></div>
             </section>
         </section>
     </main>
@@ -272,6 +263,7 @@
     </nav>
     <script src="../js/header.js"></script>
     <script src="js/painel.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="js/mapa.js"></script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+:root {
+    --accent-max: #87bfff;
+    --accent: #2389ff;
+    --active: #0066db;
+    --active-min: #0055b6;
+    --branco: #fff;
+    --escuro-max: #303944;
+    --escuro: #111418;
+}
+
+header a {
+    color: var(--branco);
+}
+header i {
+    padding-right: 0.2rem;
+}
+
+main {
+    color: var(--escuro);
+}
+
+main section.titular {
+    width: 100%;
+    padding-top: calc(35px + 5rem);
+    padding-bottom: 5rem;
+    background: linear-gradient(var(--accent), var(--active-min));
+    margin-bottom: 1rem;
+}
+main section.titular h1 {
+    color: var(--branco);
+    text-align: center;
+}
+
+main section.direitos {
+    padding-inline: 1rem;
+}
+main section.direitos p {
+    text-indent: 1rem;
+    padding-bottom: 1rem;
+}
+
+main section.devInfo {
+    margin-inline: auto;
+    width: fit-content;
+    background-color: var(--accent-max);
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+main section.devInfo div:nth-child(1) {
+    align-self: center;
+}
+
+main section.devInfo img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--accent);
+    border-radius: 50px;
+}
+
+main section.devInfo div:nth-child(2) {
+    padding-top: 1.5rem;
+    align-self: top;
+}
+
+main section.devInfo h3 {
+    margin-bottom: 0.2rem;
+}
+
+main section.devInfo a {
+    color: var(--active-min);
+}
+

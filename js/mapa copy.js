@@ -2,63 +2,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let map;
 
-    // Função para inicializar o mapa
-    function iniciarMapa() {
-        if (map) return; // evita recriar
+    const mapaDiv = document.getElementById("mapa");
+    if (!mapaDiv) return;
 
-        map = L.map('mapa').setView([-8.9, 13.25], 12);
+    map = L.map('mapa').setView([-8.9, 13.25], 12);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-        const start = [-8.968213, 13.471105]; // KM30
-        const end   = [-8.828140, 13.243203]; // 1º de Maio
+    // Ícone Font Awesome
+    const iconFA = L.divIcon({
+        className: "custom-icon",
+        html: '<i class="fa-solid fa-location-dot" style="color:#2563eb; font-size:24px;"></i>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 24]
+    });
 
-        L.marker(start).addTo(map).bindPopup("KM 30");
-        L.marker(end).addTo(map).bindPopup("1º de Maio");
+    const start = [-8.968213, 13.471105];
+    const end   = [-8.828140, 13.243203];
 
-        const url = `https://router.project-osrm.org/route/v1/driving/${start[1]},${start[0]};${end[1]},${end[0]}?overview=full&geometries=geojson`;
+    L.marker(start, { icon: iconFA }).addTo(map);
+    L.marker(end, { icon: iconFA }).addTo(map);
 
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                const route = data.routes[0].geometry;
+    const url = `https://router.project-osrm.org/route/v1/driving/${start[1]},${start[0]};${end[1]},${end[0]}?overview=full&geometries=geojson`;
 
-                const routeLine = L.geoJSON(route, {
-                    style: {
-                        color: '#2563eb',
-                        weight: 5
-                    }
-                }).addTo(map);
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            const route = data.routes[0].geometry;
 
-                map.fitBounds(routeLine.getBounds());
+            const routeLine = L.geoJSON(route, {
+                style: {
+                    color: '#2563eb',
+                    weight: 5
+                }
+            }).addTo(map);
 
-                // 🔥 CORREÇÃO PRINCIPAL
-                setTimeout(() => {
-                    map.invalidateSize();
-                }, 100);
-            })
-            .catch(err => console.error("Erro ao carregar rota:", err));
-    }
+            map.fitBounds(routeLine.getBounds());
 
-    // Detecta quando o mapa fica visível
-    const containerMapa = document.querySelector(".conteinerMapa");
-
-    const observer = new MutationObserver(() => {
-        if (containerMapa.classList.contains("active")) {
-            iniciarMapa();
-
-            // GARANTE render correto após mostrar
+            // 🔥 CORREÇÃO DEFINITIVA DO BUG DE FRAGMENTAÇÃO
             setTimeout(() => {
                 map.invalidateSize();
-            }, 200);
-        }
-    });
 
-    observer.observe(containerMapa, {
-        attributes: true,
-        attributeFilter: ["class"]
-    });
+                // truque: força o Leaflet a recalcular tudo
+                map.panBy([1, 1]);
+                map.panBy([-1, -1]);
+
+            }, 200);
+        });
 
 });
