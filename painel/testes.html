@@ -156,14 +156,11 @@
             initMapa();
 
             // ===============================
-            // OBTEM LOCALIZAÇÃO
+            // OBTEM LOCALIZAÇÃO (COM RETRY)
+            // ===============================
 
-            // Opções recomendadas para maior precisão
-            const geoOptions = {
-                enableHighAccuracy: true,     // ← Mais importante
-                maximumAge: 0,                // Não usar cache antigo
-                timeout: 10000                // 10 segundos de timeout
-            };
+            let tentativaGeoloc = 0;
+            const maxTentativas = 3;
 
             function getPosition(position) {
                 const lat = position.coords.latitude;
@@ -196,31 +193,87 @@
 
                 // Centralizar o mapa com um pequeno zoom
                 map.flyTo([lat, lng], accuracy > 100 ? 16 : 18);
+
+                // Após obter a primeira localização, usa watchPosition para atualizações
+                navigator.geolocation.watchPosition(
+                    (pos) => {
+                        const newLat = pos.coords.latitude;
+                        const newLng = pos.coords.longitude;
+                        const newAccuracy = pos.coords.accuracy;
+
+                        if (window.currentMarker) {
+                            window.currentMarker.setLatLng([newLat, newLng]);
+                        }
+                        if (window.currentCircle) {
+                            map.removeLayer(window.currentCircle);
+                            window.currentCircle = L.circle([newLat, newLng], {
+                                color: '#3388ff',
+                                fillColor: '#3388ff',
+                                fillOpacity: 0.15,
+                                radius: newAccuracy
+                            }).addTo(map);
+                        }
+                    },
+                    (error) => {
+                        console.warn("Erro ao atualizar localização:", error);
+                    },
+                    {
+                        enableHighAccuracy: false,
+                        maximumAge: 5000,
+                        timeout: 30000
+                    }
+                );
             }
 
-            // Função de erro
             function showError(error) {
                 console.error("Erro de geolocalização:", error);
+                
+                // Retry automático (até 3 tentativas)
+                if (tentativaGeoloc < maxTentativas) {
+                    tentativaGeoloc++;
+                    console.log(`Tentando novamente... (${tentativaGeoloc}/${maxTentativas})`);
+                    setTimeout(() => {
+                        obterLocalizacao();
+                    }, 2000);
+                    return;
+                }
+
                 let mensagem = "";
 
                 switch(error.code) {
                     case error.PERMISSION_DENIED:
-                        mensagem = "Permissão negada pelo usuário.";
+                        mensagem = "Permissão negada. Ativa a localização nas configurações do browser.";
                         break;
                     case error.POSITION_UNAVAILABLE:
-                        mensagem = "Localização indisponível.";
+                        mensagem = "Localização indisponível. Verifica a tua conexão e GPS.";
                         break;
                     case error.TIMEOUT:
-                        mensagem = "Tempo esgotado. Tente novamente.";
+                        mensagem = "Tempo esgotado após várias tentativas. Tenta novamente mais tarde.";
                         break;
                     default:
-                        mensagem = "Erro desconhecido.";
+                        mensagem = "Erro ao obter localização.";
                 }
                 alert(mensagem);
             }
 
-            // Chamar a função
-            navigator.geolocation.getCurrentPosition(getPosition, showError, geoOptions);
+            function obterLocalizacao() {
+                // Primeira tentativa: sem alta precisão (mais rápido)
+                const geoOptions = {
+                    enableHighAccuracy: false,   // Mais rápido, usa cache de rede
+                    maximumAge: 5000,            // Aceita dados com até 5 segundos
+                    timeout: 30000               // 30 segundos de timeout
+                };
+
+                if (!navigator.geolocation) {
+                    alert("Geolocalização não suportada neste browser.");
+                    return;
+                }
+
+                navigator.geolocation.getCurrentPosition(getPosition, showError, geoOptions);
+            }
+
+            // Inicia a obtenção de localização
+            obterLocalizacao();
         });
     </script>
     <script title="vozAlta">
