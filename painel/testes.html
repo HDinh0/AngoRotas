@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>AngoRotas | Testes</title>
+    <style>
+        :root {
+            --accent: #2389ff;
+            --active: #0066db;
+            --branco: #fff;
+            --escuro: #111418;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #111418;
+        }
+        header {
+            background-color: #0066db;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #mapa {
+            width: 97%;
+            margin: auto;
+            height: calc(100dvh - 150px);
+            margin: auto;
+            background-color: #eee;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        /* Estilos para o leitor de texto */
+        textarea {
+            width: 97%;
+            height: 200px;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #111418;
+            color: #e2e2e2;
+            border: none;
+            outline: none;
+            resize: none;
+            margin: auto;
+            border-radius: 10px;
+        }
+        select {
+            width: 97% !important;
+            background-color: rgba(17, 20, 24, 0.8);
+            color: #ccc; 
+            margin-top: 2rem;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            margin: auto;
+            border-radius: 10px;
+        }
+        .botoes {
+            margin-block: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .botoes button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--branco);
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .botoes button:active {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="./index.html">
+            <i class="fa-solid fa-caret-left"></i>
+            Voltar
+        </a>
+        <h2>AngoRotas</h2>
+    </header>
+
+    <!-- Mapa -->
+    <h3>Tua localização em tempo real</h3>
+    <div id="mapa"></div>
+
+    <!-- Leitor de Texto -->
+    <h3>Anunciante em voz alta</h3>
+
+    <textarea id="texto">Olá. Este sistema é capaz de emitir som em voz alta.</textarea>
+    <select id="vozes"></select>
+
+    <div class="botoes">
+        <button style="background-color: var(--active);" onclick="falar()">
+            <i class="fa-solid fa-play"></i>
+            Falar
+        </button>
+        <button style="background-color: var(--accent);" onclick="parar()">
+            <i class="fa-solid fa-stop"></i>
+            Parar
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script title="localizador">
+        window.addEventListener("load", () => {
+            let map;
+            let rotaAtual = null; // guarda a linha atual
+
+            const mapaDiv = document.getElementById("mapa");
+            if (!mapaDiv) return;
+
+            // ===============================
+            // INICIALIZA MAPA (APENAS UMA VEZ)
+            // ===============================
+            function initMapa() {
+
+                map = L.map('mapa', {
+                    zoomControl: true
+                }).setView([-8.9, 13.25], 12);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+
+                // força correção de layout
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 500);
+            }
+            initMapa();
+
+            // ===============================
+            // OBTEM LOCALIZAÇÃO
+
+            // Opções recomendadas para maior precisão
+            const geoOptions = {
+                enableHighAccuracy: true,     // ← Mais importante
+                maximumAge: 0,                // Não usar cache antigo
+                timeout: 10000                // 10 segundos de timeout
+            };
+
+            function getPosition(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const accuracy = position.coords.accuracy;
+
+                console.log(`📍 Latitude: ${lat}`);
+                console.log(`📍 Longitude: ${lng}`);
+                console.log(`📍 Precisão: ${accuracy.toFixed(2)} metros`);
+
+                // Remover marcadores antigos (se quiser)
+                if (window.currentMarker) map.removeLayer(window.currentMarker);
+                if (window.currentCircle) map.removeLayer(window.currentCircle);
+
+                // Marcador exato
+                window.currentMarker = L.marker([lat, lng], {
+                    icon: L.icon({
+                        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                    })
+                }).addTo(map);
+
+                // Círculo de precisão (só para visualização)
+                window.currentCircle = L.circle([lat, lng], {
+                    color: '#3388ff',
+                    fillColor: '#3388ff',
+                    fillOpacity: 0.15,
+                    radius: accuracy
+                }).addTo(map);
+
+                // Centralizar o mapa com um pequeno zoom
+                map.flyTo([lat, lng], accuracy > 100 ? 16 : 18);
+            }
+
+            // Função de erro
+            function showError(error) {
+                console.error("Erro de geolocalização:", error);
+                let mensagem = "";
+
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        mensagem = "Permissão negada pelo usuário.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        mensagem = "Localização indisponível.";
+                        break;
+                    case error.TIMEOUT:
+                        mensagem = "Tempo esgotado. Tente novamente.";
+                        break;
+                    default:
+                        mensagem = "Erro desconhecido.";
+                }
+                alert(mensagem);
+            }
+
+            // Chamar a função
+            navigator.geolocation.getCurrentPosition(getPosition, showError, geoOptions);
+        });
+    </script>
+    <script title="vozAlta">
+        const selectVozes = document.getElementById('vozes');
+        let vozes = [];
+        function carregarVozes(){
+            vozes = speechSynthesis.getVoices();
+            selectVozes.innerHTML = '';
+            vozes.forEach((voz, index) => {
+                // Apenas vozes portuguesas
+                if(
+                    voz.lang.includes('pt')
+                ){
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent =
+                        `${voz.name} (${voz.lang})`;
+                    selectVozes.appendChild(option);
+                }
+            });
+        }
+
+        carregarVozes();
+
+        speechSynthesis.onvoiceschanged = carregarVozes;
+
+        function falar(){
+            speechSynthesis.cancel();
+            const texto =
+                document.getElementById('texto').value;
+
+            const fala =
+                new SpeechSynthesisUtterance(texto);
+
+            const vozSelecionada =
+                vozes[selectVozes.value];
+
+            fala.voice = vozSelecionada;
+
+            // Português
+            fala.lang = 'pt-BR';
+
+            // Velocidade
+            fala.rate = 1;
+
+            // Tom
+            fala.pitch = 1;
+
+            // Volume
+            fala.volume = 1;
+
+            speechSynthesis.speak(fala);
+        }
+        function parar(){
+            speechSynthesis.cancel();
+        }
+    </script>
+</body>
+</html>

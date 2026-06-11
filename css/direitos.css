@@ -43,7 +43,8 @@ main section.direitos p {
 
 main section.devInfo {
     margin-inline: auto;
-    width: fit-content;
+    width: 90%;
+    max-width: 450px;
     background-color: var(--accent-max);
     display: flex;
     justify-content: center;
